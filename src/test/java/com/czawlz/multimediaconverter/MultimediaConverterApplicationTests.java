@@ -10,9 +10,4 @@ class MultimediaConverterApplicationTests {
 	void contextLoads() {
 	}
 
-	@Test
-	void testConvertMp4ToWebm() {
-
-	}
-
 }

@@ -1,4 +1,4 @@
-package com.czawlz.multimediaconverter.video;
+package com.czawlz.multimediaconverter.service;
 
 import net.bramp.ffmpeg.FFmpeg;
 import net.bramp.ffmpeg.FFmpegExecutor;
@@ -8,15 +8,13 @@ import net.bramp.ffmpeg.builder.FFmpegBuilder;
 import net.bramp.ffmpeg.probe.FFmpegProbeResult;
 import net.bramp.ffmpeg.progress.Progress;
 import net.bramp.ffmpeg.progress.ProgressListener;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-public class Mp4ToWebm {
-
-    public Mp4ToWebm() {
-
-    }
+@Service
+public class Mp4ToWebmServiceImpl implements Mp4ToWebmService {
 
     public void convert() throws IOException {
 
@@ -61,15 +59,15 @@ public class Mp4ToWebm {
                 double percentage = progress.out_time_ns / duration_ns;
 
                 // Print out interesting information about the progress
-                System.out.println(String.format(
-                        "[%.0f%%] status:%s frame:%d time:%s ms fps:%.0f speed:%.2fx",
+                System.out.printf(
+                        "[%.0f%%] status:%s frame:%d time:%s ms fps:%.0f speed:%.2fx%n",
                         percentage * 100,
                         progress.status,
                         progress.frame,
                         FFmpegUtils.toTimecode(progress.out_time_ns, TimeUnit.NANOSECONDS),
                         progress.fps.doubleValue(),
                         progress.speed
-                ));
+                );
             }
         }).run();
     }
