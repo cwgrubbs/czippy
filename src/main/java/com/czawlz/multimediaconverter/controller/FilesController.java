@@ -23,8 +23,9 @@ public class FilesController {
     @Autowired
     FileStorageService storageService;
 
-    @PostMapping("/upload")
-    public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file) {
+    @PostMapping(value = "/upload/", consumes = "multipart/form-data")
+    @ResponseBody
+    public ResponseEntity<ResponseMessage> uploadFile(@RequestParam(value = "file") MultipartFile file) {
         String message;
         try {
             storageService.save(file);
@@ -37,7 +38,8 @@ public class FilesController {
         }
     }
 
-    @GetMapping("/files")
+    @RequestMapping(value = "/files/", method = RequestMethod.GET)
+    @ResponseBody
     public ResponseEntity<List<FileInfo>> getListFiles() {
         List<FileInfo> fileInfos = storageService.loadAll().map(path -> {
             String filename = path.getFileName().toString();
@@ -51,7 +53,7 @@ public class FilesController {
         return ResponseEntity.status(HttpStatus.OK).body(fileInfos);
     }
 
-    @GetMapping("/files/{filename:.+}")
+    @RequestMapping(value = "/files/{filename:.+}", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<Resource> getFile(@PathVariable String filename) {
         Resource file = storageService.load(filename);

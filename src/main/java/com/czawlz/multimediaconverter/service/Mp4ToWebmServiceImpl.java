@@ -20,14 +20,14 @@ public class Mp4ToWebmServiceImpl implements Mp4ToWebmService {
 
         FFmpeg ffmpeg = new FFmpeg();
         FFprobe ffprobe = new FFprobe();
-        FFmpegProbeResult in = ffprobe.probe("/home/czawlz/Videos/tubb_.mp4");
+        FFmpegProbeResult in = ffprobe.probe("/home/czawlz/Videos/dd.mp4");
 
         FFmpegBuilder builder = new FFmpegBuilder()
 
                 .setInput(in)     // Filename, or a FFmpegProbeResult
                 .overrideOutputFiles(true) // Override the output if it exists
 
-                .addOutput("/home/czawlz/Videos/tubb_.webm")   // Filename for the destination
+                .addOutput("/home/czawlz/Videos/dd.webm")   // Filename for the destination
                 .setFormat("webm")        // Format is inferred from filename, or can be set
                 //.setTargetSize(250_000)  // Aim for a 250KB file
 
