@@ -6,16 +6,25 @@ class UploadFilesService {
 
         formData.append("file", file);
 
-        return http.post("/upload", formData, {
+        return http.post("/api/upload", formData, {
             headers: {
                 "Content-Type": "multipart/form-data",
             },
             onUploadProgress,
+            auth: {
+                username: 'user',
+                password: 'password'
+            }
         });
     }
 
     getFiles() {
-        return http.get("/files");
+        return http.get("/api/files", {
+            auth: {
+                username: 'user',
+                password: 'password'
+            }
+        });
     }
 }
 

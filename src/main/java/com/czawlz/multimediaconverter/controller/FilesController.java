@@ -17,13 +17,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
-@CrossOrigin("http://192.168.1.8:8081")
+@CrossOrigin("http://192.168.1.7:8081")
 public class FilesController {
 
     @Autowired
     FileStorageService storageService;
 
-    @PostMapping(value = "/upload/", consumes = "multipart/form-data")
+    @PostMapping(value = "/upload", consumes = "multipart/form-data")
     @ResponseBody
     public ResponseEntity<ResponseMessage> uploadFile(@RequestParam(value = "file") MultipartFile file) {
         String message;
@@ -38,7 +38,7 @@ public class FilesController {
         }
     }
 
-    @RequestMapping(value = "/files/", method = RequestMethod.GET)
+    @RequestMapping(value = "/files", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<List<FileInfo>> getListFiles() {
         List<FileInfo> fileInfos = storageService.loadAll().map(path -> {
