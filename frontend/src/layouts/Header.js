@@ -56,7 +56,7 @@ const Header = () => {
   return (
     <header css={[headerStyle]}>
       <Link to="/" replace={pathname === '/'}>
-        <LogoIcon /> brand
+        <LogoIcon /> czawls
       </Link>
 
       <div>
