@@ -4,8 +4,8 @@
 
 ### Building and running:
 
-1) From project root directory `MultimediaConverter/`, run: `mvn spring-boot:run`
-2) From directory `MultimediaConverter/frontend/`, run: `npm install` then `npm start`
+1) From project root directory `czippy/`, run: `mvn spring-boot:run`
+2) From directory `czippy/frontend/`, run: `npm install` then `npm start`
 
 #### Built with Spring, React.js, Spleeter, Basic Pitch, and GSXCC
 

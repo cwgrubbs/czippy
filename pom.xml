@@ -9,11 +9,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.czawlz</groupId>
-	<artifactId>MultimediaConverter</artifactId>
+	<artifactId>czippy</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>MultimediaConverter</name>
-	<description>MultimediaConverter</description>
+	<name>czippy</name>
+	<description>czippy</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

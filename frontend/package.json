@@ -3,8 +3,8 @@
   "version": "0.2.0",
   "description": "React Single Page App template without CRA",
   "main": "src/index.js",
-  "hompage": "https://cwgrubbs.github.io/MultimediaConverter/frontend",
-  "repository": "https://github.com/cwgrubbs/MultimediaConverter/frontend",
+  "hompage": "https://cwgrubbs.github.io/czippy/frontend",
+  "repository": "https://github.com/cwgrubbs/czippy/frontend",
   "author": "ofnullable <ofnullable@gmail.com>",
   "license": "MIT",
   "engines": {
